@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 
 declare const $: any;
 declare interface RouteInfo {
-    path: string;
+    path?: string;
+    subTasks?: RouteInfo[];
     title: string;
     icon: string;
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    { title: 'Theme UI', subTasks:[
+      { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' }
+    ],  icon:'person', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
